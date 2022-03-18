@@ -1,7 +1,5 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Folder extends Model {
     /**
@@ -9,17 +7,26 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
+    static associate({ Photo }) {
       // define association here
+      this.hasMany(Photo)
+    }
+
+    toJSON() {
+      return {...this.get(), id: undefined}
     }
   }
   Folder.init({
+    uuid: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+    },
     name: DataTypes.STRING,
     parent: DataTypes.INTEGER,
-    creation_date: DataTypes.DATE,
     notes: DataTypes.STRING
   }, {
     sequelize,
+    tableName: 'folder',
     modelName: 'Folder',
   });
   return Folder;

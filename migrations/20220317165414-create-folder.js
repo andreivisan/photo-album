@@ -1,12 +1,16 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Folder', {
+    await queryInterface.createTable('folder', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
+      },
+      uuid: {
+        type: Sequelize.UUID,
+        allowNull: false
       },
       name: {
         type: Sequelize.STRING,
@@ -29,6 +33,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Folder');
+    await queryInterface.dropTable('folder');
   }
 };
