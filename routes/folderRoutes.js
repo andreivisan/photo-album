@@ -1,22 +1,10 @@
 const express = require('express');
-const { Folder, Photo } = require('../models')
+const folderController = require('../controllers/folderController')
 
 const router = express.Router();
 
 
-router.post('/', async (req, res) => {
-    const { name, parent, notes } = req.body;
-
-    try {
-        const folder = await Folder.create({ name, parent, notes });
-    
-        return res.json(folder);
-    } catch (err) {
-        console.log(err);
-
-        return res.status(500).json(err);
-    }
-});
+router.post('/', folderController.folder_create_post);
 
 router.get('/', (req, res) => {
     res.send({
