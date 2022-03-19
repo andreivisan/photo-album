@@ -43,8 +43,46 @@ const folder_details = async (req, res) => {
     }
 }
 
+const folder_delete = async (req, res) => {
+    const uuid = req.params.uuid;
+    try {
+        const folder = await Folder.findOne({ where: { uuid } });
+
+        await folder.destroy();
+
+        return res.json({ message: 'Folder deleted!' })
+    } catch (error) {
+        console.log(error);
+
+        return res.status(500).json(error);
+    }
+}
+
+const folder_update = async (req, res) => {
+    const uuid = req.params.uuid;
+    const { name, parent, notes } = req.body;
+
+    try {
+        const folder = await Folder.findOne({ where: { uuid } });
+
+        folder.name = name;
+        folder.parent = parent;
+        folder.notes = notes;
+
+        await folder.save();
+        
+        return res.json(folder);
+    } catch (error) {
+        console.log(error);
+
+        return res.status(500).json(error);
+    }
+}
+
 module.exports = {
     folder_create_post,
     folder_index,
-    folder_details
+    folder_details,
+    folder_delete,
+    folder_update
 }

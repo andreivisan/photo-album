@@ -17,7 +17,7 @@ module.exports = {
         allowNull: false
       },
       parent: {
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID
       },
       notes: {
         type: Sequelize.STRING
