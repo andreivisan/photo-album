@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ Folder }) {
       // define association here
-      this.belongsTo(Folder)
+      this.belongsTo(Folder, { foreignKey: 'folder_id', as: 'folder' })
     }
 
     toJSON() {
