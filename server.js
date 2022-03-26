@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const folderRoutes = require('./routes/folderRoutes')
+const photoRoutes = require('./routes/photoRoutes')
 const { sequelize } = require('./models')
 
 require('dotenv').config();
@@ -21,6 +22,7 @@ app.get('/', (req, res) => {
 
 //folder routes
 app.use('/folders', folderRoutes);
+app.use('/photos', photoRoutes);
 
 // listen for requests
 const PORT = 3000
