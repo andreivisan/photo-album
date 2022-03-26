@@ -10,10 +10,4 @@ router.get('/:uuid', folderController.folder_details);
 router.delete('/:uuid', folderController.folder_delete);
 router.put('/:uuid', folderController.folder_update);
 
-router.get('/', (req, res) => {
-    res.send({
-        "response": "success"
-    })
-});
-
 module.exports = router

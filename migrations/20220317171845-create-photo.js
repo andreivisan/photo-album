@@ -18,11 +18,11 @@ module.exports = {
       },
       folder_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'folder',
-          key: 'id'
-        }
+        allowNull: false
+      },
+      path: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
       camera: {
         type: Sequelize.STRING

@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: DataTypes.UUIDV4,
     },
     name: DataTypes.STRING,
-    folder_id: DataTypes.INTEGER,
+    path: DataTypes.STRING,
     camera: DataTypes.STRING,
     file_size: DataTypes.STRING,
     resolution: DataTypes.STRING,
