@@ -2,25 +2,21 @@
   "name": "photo-album",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "author": "Andrei Visan",
   "scripts": {
+    "client": "npm run serve --prefix app",
     "db-migrate": "npx sequelize-cli db:migrate",
     "db-migrate-undo": "npx sequelize-cli db:migrate:undo",
     "db-migrate-undo-all": "npx sequelize-cli db:migrate:undo:all",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server.js --ignore 'app/'",
     "test": "test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/andreivisan/photo-album.git"
-  },
-  "author": "Andrei Visan",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/andreivisan/photo-album/issues"
-  },
-  "homepage": "https://github.com/andreivisan/photo-album#readme",
+  "main": "server.js",
   "dependencies": {
+    "autoprefixer": "^10",
     "body-parser": "^1.19.2",
+    "concurrently": "^7.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
@@ -31,5 +27,14 @@
   },
   "devDependencies": {
     "sequelize-cli": "^6.4.1"
+  },
+  "bugs": {
+    "url": "https://github.com/andreivisan/photo-album/issues"
+  },
+  "homepage": "https://github.com/andreivisan/photo-album#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreivisan/photo-album.git"
   }
 }
