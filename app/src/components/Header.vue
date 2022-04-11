@@ -1,10 +1,10 @@
 <template>
     <div class="grid grid-cols-9 gap-4 mt-6">
         <div class="col-span-4 text-left ml-6">
-            <a href="" class="py-2 px-6 text-black border-b-2 border-black font-semibold ">Albums</a>
-            <a href="" class="py-2 px-6 text-black font-semibold hover:text-gray-500 transition duration-300">All Photos</a>
+            <a href="" class="py-2 px-3 text-black border-b-4 border-black font-semibold ">Albums</a>
+            <a href="" class="py-2 px-3 text-black font-semibold hover:text-gray-500 transition duration-300">All Photos</a>
         </div>
-        <div class="bg-black text-white font-bold italic text-xl pt-1">
+        <div class="bg-black text-white font-bold italic text-l p-2 rounded-md">
             <p>MY PHOTO ALBUM</p>
         </div>
         <div class="col-span-4 text-right mr-6">
