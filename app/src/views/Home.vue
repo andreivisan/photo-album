@@ -1,6 +1,18 @@
 <template>
   <div class="home">
     <Header />
+    <div class="mt-20 ml-6" @click="openModal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24"><path d="M24 17h-3v-3h-2v3h-3v2h3v3h2v-3h3v-2zm-10 5h-14v-20h7c1.695 1.942 2.371 3 4 3h13v7h-2v-5h-11c-2.34 0-3.537-1.388-4.916-3h-4.084v16h12v2z"/></svg>
+    </div>
+    <div class="border-black border-b-2 mr-6 mt-10 ml-6"></div>
+    <teleport to=".modals" v-if="showModal">
+      <Modal @close="closeModal">
+        <template v-slot:modal-title>ADD FOLDER</template>
+        <template v-slot:modal-content>
+          <AddFolderForm :folders="folders"/>
+        </template>
+      </Modal>
+    </teleport>
     <div v-if="folders.length">
       <Folders :folders="folders"/>
     </div>
@@ -12,10 +24,12 @@ import getFolders from '@/composables/getFolders'
 
 import Header from '../components/Header.vue'
 import Folders from '../components/Folders.vue'
+import Modal from '@/components/Modal.vue'
+import AddFolderForm from '@/components/AddFolderForm.vue'
 
 export default {
   name: 'Home',
-  components: { Header, Folders },
+  components: { Header, Folders, Modal, AddFolderForm },
 
   setup() {
     const {folders, error, load} = getFolders()
@@ -23,6 +37,22 @@ export default {
     load()
 
     return { folders, error }
+  },
+
+  data() {
+    return {
+      showModal: false
+    }
+  },
+
+  methods: {
+    openModal() {
+      this.showModal = true
+    },
+
+    closeModal() {
+      this.showModal = false
+    }
   }
 }
 </script>
