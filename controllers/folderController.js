@@ -18,7 +18,7 @@ const folder_create_post = async (req, res) => {
 const folder_index = async (req, res) => {
     try {
        const folders = await Folder.findAll();
-       
+
        return res.json(folders)
     } catch (error) {
         console.log(error);

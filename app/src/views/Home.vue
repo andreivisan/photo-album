@@ -1,16 +1,28 @@
 <template>
   <div class="home">
     <Header />
-    <Folders />
+    <div v-if="folders.length">
+      <Folders :folders="folders"/>
+    </div>
   </div>
 </template>
 
 <script>
-  import Header from '../components/Header.vue'
-  import Folders from '../components/Folders.vue'
+import getFolders from '@/composables/getFolders'
 
-  export default {
-    name: 'Home',
-    components: { Header, Folders }
+import Header from '../components/Header.vue'
+import Folders from '../components/Folders.vue'
+
+export default {
+  name: 'Home',
+  components: { Header, Folders },
+
+  setup() {
+    const {folders, error, load} = getFolders()
+
+    load()
+
+    return { folders, error }
   }
+}
 </script>

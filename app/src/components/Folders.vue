@@ -5,33 +5,19 @@
         </div>
         <div class="border-black border-b-2 mr-6 mt-10"></div>
         <div class="grid grid-cols-4 gap-4 mt-10">
-            <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24"><path d="M6.083 4c1.38 1.612 2.578 3 4.917 3h11v13h-20v-16h4.083zm.917-2h-7v20h24v-17h-13c-1.629 0-2.305-1.058-4-3z"/></svg>
-                <div class="text-left font-bold">Brissago</div>
-            </span>
-
-            <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24"><path d="M6.083 4c1.38 1.612 2.578 3 4.917 3h11v13h-20v-16h4.083zm.917-2h-7v20h24v-17h-13c-1.629 0-2.305-1.058-4-3z"/></svg>
-                <div class="text-left font-bold">Lelystaad</div>
-            </span>
-
-            <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24"><path d="M6.083 4c1.38 1.612 2.578 3 4.917 3h11v13h-20v-16h4.083zm.917-2h-7v20h24v-17h-13c-1.629 0-2.305-1.058-4-3z"/></svg>
-                <div class="text-left font-bold">Greece</div>
-            </span>
-
-            <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24"><path d="M6.083 4c1.38 1.612 2.578 3 4.917 3h11v13h-20v-16h4.083zm.917-2h-7v20h24v-17h-13c-1.629 0-2.305-1.058-4-3z"/></svg>
-                <div class="text-left font-bold">Amsterdam</div>
-            </span>
+            <div v-for="folder in folders" :key="folder.uuid">
+                <Folder :folder="folder" />
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-export default {
-
-}
+    import Folder from './Folder.vue'
+    export default {
+        props: ['folders'],
+        components: { Folder }
+    }
 </script>
 
 <style>
