@@ -7,9 +7,13 @@
     <div class="border-black border-b-2 mr-6 mt-10 ml-6"></div>
     <teleport to=".modals" v-if="showModal">
       <Modal @close="closeModal">
-        <template v-slot:modal-title>ADD FOLDER</template>
+        <template v-slot:modal-title>
+          <div class="bg-black text-white font-bold italic text-l p-2 rounded-md flex items-center justify-between">
+            ADD FOLDER
+          </div>
+        </template>
         <template v-slot:modal-content>
-          <AddFolderForm :folders="folders"/>
+          <AddFolderForm :folders="folders" @closeModal="closeModal"/>
         </template>
       </Modal>
     </teleport>

@@ -6,7 +6,7 @@
             <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
                 <div class="relative bg-white rounded-lg shadow">
                     <!-- HEADER -->
-                    <div class="flex justify-between items-start p-4 rounded-t border-b dark:border-black">
+                    <div class="flex justify-center items-center p-4 rounded-t border-b dark:border-black">
                         <slot name="modal-title"></slot>
                     </div>
 
