@@ -4,9 +4,9 @@
         
         <div class="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0">     
             <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
-                <div class="relative bg-white rounded-lg shadow">
+                <div class="relative bg-gray-200 rounded-lg shadow">
                     <!-- HEADER -->
-                    <div class="flex justify-center items-center p-4 rounded-t border-b dark:border-black">
+                    <div class="flex justify-center items-center p-4 rounded-t">
                         <slot name="modal-title"></slot>
                     </div>
 
@@ -16,7 +16,7 @@
                     </div>
 
                     <!-- ACTIONS -->
-                    <div class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
+                    <div class="flex items-center p-6 space-x-2 rounded-b">
                         <slot name="modal-actions"></slot>
                     </div>
                 </div>
