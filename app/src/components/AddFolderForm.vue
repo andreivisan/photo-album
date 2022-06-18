@@ -17,7 +17,7 @@
         <div class="rounded-full nm-flat-gray-200 leading-5 flex-grow sm:w-2/3 relative">
             <select v-model="parent" id="parentFolder" class="appearance-none w-full px-8 py-4 bg-transparent font-semibold">
                 <option selected>Parent Folder</option>
-                <option  v-for="folder in folders" :key="folder.uuid" value="{{ folder.uuid }}">{{ folder.name }}</option>
+                <option  v-for="folder in folders" :key="folder.uuid" :value="folder.uuid">{{ folder.name }}</option>
             </select>
 
             <div class="absolute right-0 top-0 h-full pr-8 flex flex-col justify-center items-center pointer-events-none">
