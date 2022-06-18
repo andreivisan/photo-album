@@ -79,10 +79,25 @@ const folder_update = async (req, res) => {
     }
 }
 
+const folder_children = async (req, res) => {
+    const uuid = req.params.uuid
+
+    try {
+        const folders = await Folder.findAll({ where: { parent: uuid } })
+
+        return res.json(folders)
+    } catch (error) {
+        console.log(error);
+
+        return res.status(500).json(error);
+    }
+}
+
 module.exports = {
     folder_create_post,
     folder_index,
     folder_details,
     folder_delete,
-    folder_update
+    folder_update,
+    folder_children
 }
